@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="style.css" rel="stylesheet">
+    </link>
+    <title>Life Log - You are the Metavere</title>
+</head>
+
+<body>
+   <style>
+     body {background-image: url('galaxyhigh.jpg');
+     background-size: cover;
+     background-repeat: repeat;}
+   </style>
+    <div id="container_main">
+        <div id="header">
+            <!-- <h1><center>Jack's Travel Log</center></h1> -->
+
+        </div>
+        <div id="map">            
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BGM1"STARWARS"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BGM2 "Mikrokosmos"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BGM3 "You Are The Universe" 
+                   </p>
+            <div style="overflow:hidden; position:absolute; left: 0; top: 10px;; width:50px; height:25px;">
+                <div style="margin-top:-290px;">
+                <object width="420" height="315">
+                  <param name="movie" value="https://www.youtube.com/v/EjMNNpIksaI?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2"></param>
+                  <param name="allowFullScreen" value="true"></param>
+                  <param name="allowscriptaccess" value="always"></param>
+                  <embed src="https://www.youtube.com/v/EjMNNpIksaI?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2" type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
+                </object>
+                </div>
+            </div>
+              
+            <div style="overflow:hidden; position:absolute; left: 220px;; top: 10px;; width:50px; height:25px;">
+                <div style="margin-top:-290px;">
+                <object width="420" height="315">
+                  <param name="movie" value="https://www.youtube.com/embed/LXOJk2PFKgY?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2"></param>
+                  <param name="allowFullScreen" value="true"></param>
+                  <param name="allowscriptaccess" value="always"></param>
+                  <embed src="https://www.youtube.com/embed/LXOJk2PFKgY?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2" type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
+                </object>
+                </div>
+            </div>
+
+            <div style="overflow:hidden; position:absolute; left: 450px;; top: 10px;; width:50px; height:25px;">
+                <div style="margin-top:-290px;">
+                <object width="420" height="315">
+                  <param name="movie" value="https://www.youtube.com/embed/BeVutyFHYKk?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2"></param>
+                  <param name="allowFullScreen" value="true"></param>
+                  <param name="allowscriptaccess" value="always"></param>
+                  <embed src="https://www.youtube.com/embed/BeVutyFHYKk?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2" type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
+                </object>
+                </div>
+            </div>
+                <iframe src="./starwars2.html" width="100%" height="400" id="starwas"></iframe>
+
+            <div id="logTypeFrame">
+                <h3>Jack's Life Log - Choose your Metaverse</h3>
+                <button id="p1" onclick="document.getElementById('subFrame').src = './p1.html';"> TRAVEL</button>
+                <button id="p2" onclick="document.getElementById('subFrame').src = './p2.html';"> BOOK</button>
+                <button id="p3" onclick="document.getElementById('subFrame').src = './p3.html';"> MOVIE</button>
+                <button id="p4" onclick="document.getElementById('subFrame').src = './p4.html';"> MUSIC</button>
+                <button id="p5" onclick="document.getElementById('subFrame').src = './p5.html';"> GAME</button>
+                <button id="p6" onclick="document.getElementById('subFrame').src = './p6.html';"> ALL</button>
+               
+                <iframe src="./p1.html" width="100%" height="400" id="subFrame"></iframe>
+            </div>
+    
+
+        </div>
+
+            <div id="line_change">
+                <h4>Let's talking about Jack's travel</h4>
+            </div>
+
+                <div class="container_chat">
+                    <!-- View chat messages here here -->
+                    <div class="sub-container chat-feed">
+                        <div class="chat-header">Traveler's Talk</div>
+                        <div class="chat-box" id="chat-box-msgs"></div>
+                    </div>
+            
+                    <!-- Enter chat messages here -->
+                    <div class="sub-container chat-input">
+                        <input type="text" class="chat-input-name" id="name-input" placeholder="Name" />
+                        <input type="text" class="chat-input-msg" id="msg-input" placeholder="Message" />
+                        <button id="send-button">Send</button>
+                    </div>
+            </div>
+            
+            <div id="footer">
+                <h4>©Jack Chun in Jeju island, Korea. All photos and contents are reserved</h4>
+            </div>
+
+            
+        </div>
+
+
+     <script src="app.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    
+</body>
+</html>
+
