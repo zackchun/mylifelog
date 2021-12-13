@@ -24,7 +24,7 @@ db.loadDatabase();
 let coffeeTracker = [];
 
 // add a route on server, that is listening for a post request
-app.post('/nameCountry', (req, res)=> {
+app.post('/nameCountry', (req, res) => {
     console.log(req.body);
     // let currentDate = Date();
     let obj = {
@@ -35,25 +35,25 @@ app.post('/nameCountry', (req, res)=> {
         memo: req.body.memo
     }
     //insert coffee data into the database
-    db.insert(obj,(err, newDocs)=>{
-        if(err) {
-            res.json({task: "task failed"});
+    db.insert(obj, (err, newDocs) => {
+        if (err) {
+            res.json({ task: "task failed" });
         } else {
-            res.json({task:"success"});
+            res.json({ task: "success" });
         }
 
     })
 
 })
 
-app.get('/getAll', (req,res)=> {
+app.get('/getAll', (req, res) => {
 
     console.log("getAll");
-    db.find({}).sort({date: 1}).exec((err, docs)=> {
-        if(err) {
-            res.json({task: "task failed"})
+    db.find({}).sort({ date: 1 }).exec((err, docs) => {
+        if (err) {
+            res.json({ task: "task failed" })
         } else {
-            let obj = {data: docs};
+            let obj = { data: docs };
             console.log(obj);
             res.json(obj);
         }
@@ -62,14 +62,14 @@ app.get('/getAll', (req,res)=> {
 })
 
 //add route to get all life log information
-app.get('/travel', (req,res)=> {
+app.get('/travel', (req, res) => {
 
     console.log("getTravel");
-    db.find({type: 'travel'}).sort({date: 1}).exec((err, docs)=> {
-        if(err) {
-            res.json({task: "task failed"})
+    db.find({ type: 'travel' }).sort({ date: 1 }).exec((err, docs) => {
+        if (err) {
+            res.json({ task: "task failed" })
         } else {
-            let obj = {data: docs};
+            let obj = { data: docs };
             console.log(obj);
             res.json(obj);
         }
@@ -77,14 +77,14 @@ app.get('/travel', (req,res)=> {
 
 })
 
-app.get('/book', (req,res)=> {
+app.get('/book', (req, res) => {
 
     console.log("getBook");
-    db.find({type: 'book'}).sort({date: 1}).exec((err, docs)=> {
-        if(err) {
-            res.json({task: "task failed"})
+    db.find({ type: 'book' }).sort({ date: 1 }).exec((err, docs) => {
+        if (err) {
+            res.json({ task: "task failed" })
         } else {
-            let obj = {data: docs};
+            let obj = { data: docs };
             console.log(obj);
             res.json(obj);
         }
@@ -92,14 +92,14 @@ app.get('/book', (req,res)=> {
 
 })
 
-app.get('/movie', (req,res)=> {
+app.get('/movie', (req, res) => {
 
     console.log("getMovie");
-    db.find({type: 'movie'}).sort({date: 1}).exec((err, docs)=> {
-        if(err) {
-            res.json({task: "task failed"})
+    db.find({ type: 'movie' }).sort({ date: 1 }).exec((err, docs) => {
+        if (err) {
+            res.json({ task: "task failed" })
         } else {
-            let obj = {data: docs};
+            let obj = { data: docs };
             console.log(obj);
             res.json(obj);
         }
@@ -107,14 +107,14 @@ app.get('/movie', (req,res)=> {
 
 })
 
-app.get('/music', (req,res)=> {
+app.get('/music', (req, res) => {
 
     console.log("getMusic");
-    db.find({type: 'music'}).sort({date: 1}).exec((err, docs)=> {
-        if(err) {
-            res.json({task: "task failed"})
+    db.find({ type: 'music' }).sort({ date: 1 }).exec((err, docs) => {
+        if (err) {
+            res.json({ task: "task failed" })
         } else {
-            let obj = {data: docs};
+            let obj = { data: docs };
             console.log(obj);
             res.json(obj);
         }
@@ -122,14 +122,14 @@ app.get('/music', (req,res)=> {
 
 })
 
-app.get('/game', (req,res)=> {
+app.get('/game', (req, res) => {
 
     console.log("getGame");
-    db.find({type: 'game'}).sort({date: 1}).exec((err, docs)=> {
-        if(err) {
-            res.json({task: "task failed"})
+    db.find({ type: 'game' }).sort({ date: 1 }).exec((err, docs) => {
+        if (err) {
+            res.json({ task: "task failed" })
         } else {
-            let obj = {data: docs};
+            let obj = { data: docs };
             console.log(obj);
             res.json(obj);
         }
@@ -143,11 +143,11 @@ let io = require('socket.io');
 io = new io.Server(server);
 
 //Listen for individual clients/users to connect
-io.sockets.on('connection', function(socket) {
+io.sockets.on('connection', function (socket) {
     console.log("We have a new client: " + socket.id);
 
     //Listen for a message named 'msg' from this client
-    socket.on('msg', function(data) {
+    socket.on('msg', function (data) {
         //Data can be numbers, strings, objects
         console.log("Received a 'msg' event");
         console.log(data);
@@ -155,15 +155,10 @@ io.sockets.on('connection', function(socket) {
         //Send a response to all clients, including this one
         io.sockets.emit('msg', data);
 
-        //Send a response to all other clients, not including this one
-        // socket.broadcast.emit('msg', data);
-
-        //Send a response to just this client
-        // socket.emit('msg', data);
     });
 
     //Listen for this client to disconnect
-    socket.on('disconnect', function() {
+    socket.on('disconnect', function () {
         console.log("A client has disconnected: " + socket.id);
     });
 });
